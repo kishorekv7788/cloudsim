@@ -1,0 +1,23 @@
+{
+  "id": "az900-lab02",
+  "module": "AZ-900",
+  "provider": "azure",
+  "title": "Fix the subnet overlap",
+  "difficulty": "beginner",
+  "instructions": "Two subnets in this VNet overlap. Change one so the network has no issues.",
+  "broken_state": {
+    "name": "vnet-prod",
+    "provider": "azure",
+    "address_space": "10.0.0.0/16",
+    "subnets": [
+      {"name": "web", "cidr": "10.0.1.0/24"},
+      {"name": "app", "cidr": "10.0.1.128/25"}
+    ]
+  },
+  "goal_spec": {"max_issues": 0, "min_subnets": 2},
+  "hints": [
+    "Look at the CIDR ranges of the two subnets.",
+    "10.0.1.128/25 lives inside 10.0.1.0/24.",
+    "Move 'app' to a different /24, for example 10.0.2.0/24."
+  ]
+}

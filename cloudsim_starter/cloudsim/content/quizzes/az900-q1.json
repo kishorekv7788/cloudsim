@@ -1,0 +1,14 @@
+{
+  "id": "az900-q1",
+  "title": "Cloud concepts - quick check",
+  "questions": [
+    {"q": "Which service model gives you virtual machines where you manage the operating system?",
+     "options": ["IaaS", "PaaS", "SaaS"], "answer": 0},
+    {"q": "What is an Azure region?",
+     "options": ["A set of datacenters within a latency-defined perimeter",
+                 "A single physical server",
+                 "A billing account"], "answer": 0},
+    {"q": "In the shared responsibility model, who is always responsible for the physical datacenter?",
+     "options": ["The customer", "The cloud provider", "A third-party auditor"], "answer": 1}
+  ]
+}

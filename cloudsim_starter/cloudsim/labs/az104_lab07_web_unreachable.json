@@ -1,0 +1,31 @@
+{
+  "id": "az104-lab07",
+  "module": "AZ-104",
+  "provider": "azure",
+  "title": "Web server is unreachable",
+  "difficulty": "intermediate",
+  "instructions": "Internet users cannot open the website. Find and fix everything that blocks them.",
+  "broken_state": {
+    "network": {"name": "vnet-prod", "provider": "azure", "address_space": "10.0.0.0/16",
+                "subnets": [{"name": "web", "cidr": "10.0.1.0/24"}]},
+    "routes": [
+      {"destination": "10.0.0.0/16", "next_hop": "local"},
+      {"destination": "0.0.0.0/0", "next_hop": "none"}
+    ],
+    "rules": [
+      {"name": "deny-all-inbound", "priority": 100, "direction": "inbound",
+       "protocol": "*", "port": null, "source": "*", "action": "deny"}
+    ],
+    "statements": []
+  },
+  "goal_checks": [
+    {"type": "can_reach", "dest_ip": "203.0.113.10"},
+    {"type": "firewall_allows", "direction": "inbound", "protocol": "tcp",
+     "port": 443, "src_ip": "203.0.113.10"}
+  ],
+  "hints": [
+    "Traffic needs both a route and a firewall rule.",
+    "Check where 0.0.0.0/0 points.",
+    "Lower priority number wins: an allow rule for 443 must come before deny-all."
+  ]
+}

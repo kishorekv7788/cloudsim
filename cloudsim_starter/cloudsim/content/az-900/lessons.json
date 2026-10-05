@@ -1,0 +1,8 @@
+[
+  {"id": 1, "title": "What is cloud computing?",
+   "content": "Cloud computing means renting computing resources (servers, storage, networks) over the internet and paying only for what you use. The three service models are IaaS (you manage the OS and apps), PaaS (you manage only your apps and data) and SaaS (you just use the software)."},
+  {"id": 2, "title": "Regions and availability zones",
+   "content": "An Azure region is a set of datacenters deployed within a latency-defined perimeter and connected by a dedicated regional low-latency network. Many regions have availability zones: physically separate locations that protect your app from a datacenter failure."},
+  {"id": 3, "title": "Virtual networks and subnets",
+   "content": "A virtual network (VNet) is your private network in Azure. You give it an address space in CIDR notation, such as 10.0.0.0/16, and divide it into subnets, such as 10.0.1.0/24. Subnets inside one VNet must not overlap. Try it: open lab az900-lab02."}
+]

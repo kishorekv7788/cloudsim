@@ -1,0 +1,21 @@
+{
+  "id": "az140-lab01",
+  "module": "AZ-140",
+  "provider": "azure",
+  "title": "Bring the host pool online",
+  "difficulty": "advanced",
+  "instructions": "The desktop host pool needs 3 running session hosts. Start the missing ones.",
+  "broken_state": {
+    "network": {"name": "vnet-avd", "provider": "azure", "address_space": "10.10.0.0/16",
+                "subnets": [{"name": "hosts", "cidr": "10.10.1.0/24"}]},
+    "instances": [
+      {"name": "host1", "subnet": "hosts", "state": "running"},
+      {"name": "host2", "subnet": "hosts", "state": "stopped"},
+      {"name": "host3", "subnet": "hosts", "state": "stopped"}
+    ]
+  },
+  "goal_checks": [
+    {"type": "no_subnet_issues"},
+    {"type": "min_running_instances", "count": 3}
+  ]
+}
